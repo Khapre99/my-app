@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import EpisodesList from './components/EpisodesList';
+import CharacterGrid from './components/CharacterGrid';
 import './App.css';
 
 function App() {
+  const [selectedEpisode, setSelectedEpisode] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Rick and Morty Characters</h1>
+      <div className="content">
+        <div className="episodes">
+          <EpisodesList 
+            selectedEpisode={selectedEpisode} 
+            onSelectEpisode={setSelectedEpisode} 
+          />
+        </div>
+        <div className="characters">
+          {selectedEpisode ? (
+            <CharacterGrid episode={selectedEpisode} />
+          ) : (
+            <p>Select an episode to view characters</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

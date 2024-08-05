@@ -1,0 +1,23 @@
+.episode-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .episode-list li {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    margin: 5px 0;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .episode-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .episode-list li.selected {
+    background-color: #282c34;
+    color: white;
+    border-color: #282c34;
+  }
+  
